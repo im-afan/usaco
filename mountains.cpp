@@ -30,11 +30,6 @@ int main(){
 
     sort(bases, bases+n);
 
-
-    //for(int i = 0; i < n; i++){
-    //    printf("(%d, %d) ", bases[i].first, bases[i].second);
-    //}
-
     int cur = 0;
     int ans = 1;
 

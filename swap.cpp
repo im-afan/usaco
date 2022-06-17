@@ -42,15 +42,10 @@ int main(){
         cur.push_back(i);
     
     while(curK < k){
-        //cout << curK << endl;
-
         if(curK == 0){
             for(int i = 0; i < m; i++){
-                //cout << "i: " << i << endl;
                 for(int j = swapcoords[i].first; j <= (swapcoords[i].second+swapcoords[i].first)/2; j++){
-                // cout << j << endl;
                     int temp = cur[j];
-                  //  cout << temp << endl;
                     cur[j] = cur[swapcoords[i].second-(j-swapcoords[i].first)];
                     cur[swapcoords[i].second-(j-swapcoords[i].first)] = temp;
                 }
@@ -61,7 +56,6 @@ int main(){
             int timeleft = k - curK;
 
             if((*change.rbegin()).first > timeleft){
-                //cout << "using " << (*--change.upper_bound(timeleft)).first << "with " << timeleft << " time left " << endl;
                 curK += (*--change.upper_bound(timeleft)).first;
                 cur = transform(cur, (*--change.upper_bound(timeleft)).second);
             } else{
@@ -70,10 +64,6 @@ int main(){
                 change.insert(make_pair(curK, cur));
             }
         }
-                
-        //for(int i = 1; i <= n; i++) cout << cur[i] << " ";
-        //cout << endl << change.size() << endl;
-        //cout << endl;
     }
     cout << curK << endl;
 
